@@ -91,14 +91,11 @@ export default {
       this.currentPage = 1;
     },
     addToCart(product) {
-      // Check if the product is already in the cart
       const existingProduct = this.cart.find(item => item.id === product.id);
       
       if (existingProduct) {
-        // If it exists, increase the quantity
         existingProduct.quantity++;
       } else {
-        // If it doesn't exist, add it to the cart with quantity 1
         this.cart.push({ ...product, quantity: 1 });
       }
     },
