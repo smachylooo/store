@@ -1,15 +1,14 @@
 <script>
-import { store } from '../store';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Header',
   computed: {
-    cartItemCount() {
-      return store.totalItems; 
-    },
+    ...mapGetters(['cartItemCount']),
   },
 };
 </script>
+
 
 <template>
   <div>
@@ -27,6 +26,10 @@ export default {
           <b-nav-item to="/cart">
             <i class="bi bi-cart"></i> Cart ({{ cartItemCount }})
           </b-nav-item>
+        </b-navbar-nav>
+
+        <b-navbar-nav>
+          <b-nav-item to="/order">Orders</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
